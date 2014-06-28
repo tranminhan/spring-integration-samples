@@ -20,5 +20,4 @@ public class GreeterServiceTestWithReply {
 	public void shouldCallServiceOK() {
 		greeterService.greet2("From Test");
 	}
-
 }
