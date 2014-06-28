@@ -9,4 +9,8 @@ public class HelloServiceImpl implements HelloService {
 		System.out.println("Hello " + name);
 	}
 
+	public String getHelloMessage(String name) {
+		return "Hello, " + name;
+	}
+
 }

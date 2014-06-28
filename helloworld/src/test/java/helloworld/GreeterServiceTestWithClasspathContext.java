@@ -10,8 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/resources/applicationContext.xml")
-public class HelloWorldTestWithFileContent {
+@ContextConfiguration("classpath:applicationContext.xml")
+public class GreeterServiceTestWithClasspathContext {
 
 	@Autowired
 	GreeterService greeterService;

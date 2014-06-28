@@ -15,4 +15,11 @@ public class GreeterServiceImpl implements GreeterService {
 		helloWorldChannel.send(MessageBuilder.withPayload(name).build());
 	}
 
+	@Autowired
+	HelloService helloWorldGateway;
+
+	public void greet2(String name) {
+		System.out.println(helloWorldGateway.getHelloMessage(name));
+	}
+
 }

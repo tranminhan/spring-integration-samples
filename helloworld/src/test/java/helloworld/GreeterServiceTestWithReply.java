@@ -11,14 +11,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
-public class HelloWorldTestWithClasspathContext {
-
+public class GreeterServiceTestWithReply {
+	
 	@Autowired
 	GreeterService greeterService;
 
 	@Test
 	public void shouldCallServiceOK() {
-		greeterService.greet("From Test");
+		greeterService.greet2("From Test");
 	}
 
 }

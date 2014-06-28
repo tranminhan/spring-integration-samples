@@ -11,7 +11,18 @@
 	<channel id="helloWorldChannel"></channel>
 
 	<service-activator input-channel="helloWorldChannel"
-		ref="helloServiceImpl"></service-activator>
+		ref="helloServiceImpl" method="hello"></service-activator>
+
+
+	<!-- With Reply -->
+	<channel id="helloWorldChannelWithReply"></channel>
+
+	<service-activator input-channel="helloWorldChannelWithReply"
+		ref="helloServiceImpl" method="getHelloMessage"></service-activator>
+
+	<gateway id="helloWorldGateway"
+		service-interface="org.antran.integration.helloworld.service.HelloService"
+		default-request-channel="helloWorldChannelWithReply"></gateway>
 
 </beans:beans>
 
