@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-4.0.xsd">
+
+
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="org.antran"></context:component-scan>
+
+	<int:channel id="inputChannel1"></int:channel>
+	<int:channel id="outputChannel1"></int:channel>
+
+	<int:filter id="dogFilter" input-channel="inputChannel1" output-channel="outputChannel1">
+		<bean class="org.antran.intergration.filter.DogFilter"></bean>
+	</int:filter>
+
+	<int:bridge input-channel="outputChannel1" output-channel="testChannel"></int:bridge>
+	<int:channel id="testChannel">
+		<int:queue />
+	</int:channel>
+
+</beans>
