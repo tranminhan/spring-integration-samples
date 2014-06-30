@@ -27,6 +27,9 @@ public class HelloServiceImplTest {
 		assertNotNull(context);
 		assertNotNull(requestChannel);
 
+		/*
+		 * Expect to use @ServiceActivator with no <int:channel/> but still not success yet
+		 */
 		Message<String> message = MessageBuilder.withPayload("Jim").build();
 		requestChannel.send(message);
 
