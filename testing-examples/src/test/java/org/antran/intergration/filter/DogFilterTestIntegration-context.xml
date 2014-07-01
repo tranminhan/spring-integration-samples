@@ -11,12 +11,16 @@
 	<int:channel id="inputChannel1"></int:channel>
 	<int:channel id="outputChannel1"></int:channel>
 
-	<int:filter id="dogFilter" input-channel="inputChannel1" output-channel="outputChannel1">
+	<int:filter id="dogFilter" input-channel="inputChannel1" output-channel="outputChannel1" discard-channel="discardChannel">
 		<bean class="org.antran.intergration.filter.DogFilter"></bean>
 	</int:filter>
 
 	<int:bridge input-channel="outputChannel1" output-channel="testChannel"></int:bridge>
 	<int:channel id="testChannel">
+		<int:queue />
+	</int:channel>
+
+	<int:channel id="discardChannel">
 		<int:queue />
 	</int:channel>
 

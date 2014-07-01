@@ -23,6 +23,9 @@ public class DogFilterTestIntegration
     @Autowired
     PollableChannel testChannel;
     
+    @Autowired
+    PollableChannel discardChannel;
+    
     @Test
     public void shouldFilterAndPassMessageToOutput()
     {
@@ -42,5 +45,22 @@ public class DogFilterTestIntegration
         // then
         receivedMessage = testChannel.receive(0);
         assertNull(receivedMessage);
+    }
+    
+    @Test
+    public void shouldReceiveDiscardedMessage()
+    {
+        // when
+        Message<String> message = MessageBuilder.withPayload("SMART CAT").build();
+        inputChannel1.send(message);
+        
+        // then
+        Message<?> receivedMessage = testChannel.receive(0);
+        assertNull(receivedMessage);
+        
+        // then
+        Message<String> discardedMessage = (Message<String>) discardChannel.receive(0);
+        assertNotNull(discardedMessage);
+        assertEquals("SMART CAT", discardedMessage.getPayload());
     }
 }
