@@ -10,6 +10,7 @@
 		<config>src/test/java/org/antran/intergration/filter/DogFilterTestIntegration-context.xml</config>
 		<config>src/test/java/org/antran/intergration/router/PetRouterTestIntegration-context.xml</config>
 		<config>src/test/java/org/antran/intergration/splitter/CommaSplitterTestIntegration-context.xml</config>
+		<config>src/test/java/org/antran/intergration/aggragator/CommaAggregatorTestIntegration-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
